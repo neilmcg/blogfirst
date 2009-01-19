@@ -1,8 +1,12 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require 'nest-unit'
+require File.join(File.dirname(__FILE__), *%w[object_creation_methods]) unless defined?(Fixjour)
 
 class Test::Unit::TestCase
+  include Fixjour
+  
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded
