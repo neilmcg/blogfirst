@@ -18,4 +18,17 @@ class PostsController < ApplicationController
     end
   end
   
+  def update
+    @post = Post.find(params[:id])
+    if @post.save
+      redirect_to @post
+    else
+      redirect_to new_post_path
+    end
+  end
+  
+  def show
+    @post = Post.find(params[:id])
+  end
+  
 end

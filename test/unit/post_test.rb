@@ -13,5 +13,11 @@ class PostTest < ActiveSupport::TestCase
     assert ! post.valid?
     assert post.errors.on(:title)
   end
+  
+  test "should require a body" do
+    post = new_post :body => nil
+    assert ! post.valid?
+    assert post.errors.on(:body)
+  end
 
 end
