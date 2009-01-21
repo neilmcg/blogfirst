@@ -9,9 +9,9 @@ class PostTest < ActiveSupport::TestCase
   end
   
   test "should require a title" do
-    assert_no_difference 'Post.count' do
-      create_post :title => nil
-    end
+    post = new_post :title => nil
+    assert ! post.valid?
+    assert post.errors.on(:title)
   end
 
 end
