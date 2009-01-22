@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    if @post.save
+    if @post.update_attributes(@post)
       redirect_to @post
     else
       redirect_to new_post_path
