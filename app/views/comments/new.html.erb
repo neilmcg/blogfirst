@@ -1,0 +1,5 @@
+<% form_for(@post, @comment) do |f| %>
+<%= f.text_field :email %>
+<p>Body: <%= f.text_area :body %></p>
+<p><%= f.submit %></p>
+<% end %>
