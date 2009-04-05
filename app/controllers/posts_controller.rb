@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     
     if @post.save
+      flash[:notice] = "Post created."
       redirect_to @post
     else
       redirect_to new_post_path
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
+      flash[:notice] = "Post saved."
       redirect_to @post
     else
       redirect_to new_post_path
@@ -35,4 +37,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
   
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "Post Destroyed."
+    redirect_to posts_url
+  end
 end

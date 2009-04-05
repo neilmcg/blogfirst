@@ -1,8 +1,11 @@
+<%= flash[:notice] %>
+
 <h1>Posts</h1>
 
 <% @posts.each do |p| %>
 <h2><%= link_to p.title, post_path(p.id) %></h2>
 <p><%= p.body %></p>
+<p><%= link_to "Edit", edit_post_path(p.id) %>
 <% end %>
 
 <p><%= link_to "Create Post", new_post_path %>
