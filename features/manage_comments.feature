@@ -15,3 +15,16 @@ Feature: Manage Comments
 		And I should see "Rails"
 		And I should see "neilmcgeehan@gmail.com"
 		And I should see "Awesome post!"
+	
+	Scenario: Edit a comment
+		Given I have a valid post with one comment titled Rails
+		And I am on the list of posts
+		When I follow "Rails"
+		And I follow "Edit Comment"
+		And I fill in "Email" with "edit@edit.com"
+		And I fill in "Body" with "edited body"
+		And I press "Save"
+		Then I should see "Rails"
+		And I should see "edit@edit.com"
+		And I should see "edited body"
+		
