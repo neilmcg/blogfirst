@@ -19,7 +19,8 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params[:comment])
     if @comment.save
-      redirect_to post_comment_path(@post, @comment)
+      flash[:notice] = "Comment added!"
+      redirect_to post_path(@post)
     else
       render :action => "new"
     end

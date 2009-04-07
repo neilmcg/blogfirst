@@ -5,6 +5,11 @@
 <p><%= link_to 'Delete', @post, :confirm => 'Select OK to delete.', :method => :delete %></p>
 
 <p><%= link_to 'Add Comment', new_post_comment_path(@post) %></p>
+<h1>Comments</h1>
+<% @post.comments.each do |c| %>
+<p><%=h c.email %></p>
+<p><%=h c.body %></p>
+<% end %>
 
 
 <p><%= link_to "Index", posts_path %></p>
