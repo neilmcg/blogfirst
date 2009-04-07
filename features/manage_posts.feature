@@ -1,7 +1,7 @@
 Feature: Manage Posts
 	In order to make a blog
 	As an author
-	I want to create and manage articles
+	I want to create and manage posts
 
 	Scenario: Posts list
 		Given I have valid posts titled Rails, Ruby
